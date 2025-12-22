@@ -1,0 +1,66 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '4.0.1'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.mintos'
+version = '0.0.1-SNAPSHOT'
+description = 'Demo project for Spring Boot'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(25)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-amqp")
+
+	implementation("org.springframework.boot:spring-boot-starter-test") {
+		because("we want to use spring dependency injections for Cucumber")
+	}
+
+	implementation("io.cucumber:cucumber-java:latest.release") {
+		because("we want to use Cucumber JVM")
+	}
+
+	implementation("io.cucumber:cucumber-junit-platform-engine:latest.release") {
+		because("we want to use Cucumber with JUnit 5")
+	}
+	implementation("org.junit.platform:junit-platform-suite-api:latest.release") {
+		because("we want to use the JUnit 5 @Suite annotation to select/run Cucumber tests")
+	}
+
+	implementation("org.junit.jupiter:junit-jupiter-api:latest.release") {
+		because("we want to use JUnit 5 assertions")
+	}
+
+	implementation("org.junit.jupiter:junit-jupiter-engine:latest.release") {
+		because("we want to use JUnit Jupiter test engine")
+	}
+
+	implementation("io.cucumber:cucumber-spring:latest.release") {
+		because("we want to use dependency injection in our Cucumber tests")
+	}
+
+	implementation("org.projectlombok:lombok:latest.release") {
+		because "Reduces boilerplate in main code, like getters/setters."
+	}
+
+	annotationProcessor("org.projectlombok:lombok:latest.release") {
+		because "Processes Lombok annotations at compile time."
+	}
+
+	testCompileOnly("org.projectlombok:lombok:latest.release") {
+		because "Reduces test code boilerplate, not included in final build."
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
