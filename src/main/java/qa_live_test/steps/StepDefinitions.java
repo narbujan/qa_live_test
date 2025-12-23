@@ -53,7 +53,7 @@ public class StepDefinitions {
 
 	@Then("the title should be at least {int} characters long")
 	public void theTitleShouldBeAtLeastCharactersLong(int charCount) {
-		var post = testContext.getApiResponse();
-		assertTrue(post.get("title").asString().length() >= charCount, "Received title is too short");
+		var response = testContext.getApiResponse();
+		assertTrue(response.get("title").asString().length() >= charCount, "Received is less than " + charCount + " characters long");
 	}
 }
