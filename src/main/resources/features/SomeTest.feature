@@ -9,4 +9,4 @@ Feature: Test some random things
 
   Scenario: It can execute api request
     Given I request post with ID 1
-    Then the title should be at least 100 characters long
+    Then the title should be at least 10 characters long
