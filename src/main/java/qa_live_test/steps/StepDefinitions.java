@@ -1,6 +1,5 @@
 package qa_live_test.steps;
 
-import io.cucumber.java.PendingException;
 import qa_live_test.context.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
