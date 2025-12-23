@@ -11,5 +11,5 @@ import tools.jackson.databind.JsonNode;
 public class TestContext {
 
 	private String message;
-	private JsonNode post;
+	private JsonNode apiResponse;
 }

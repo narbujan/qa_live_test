@@ -48,12 +48,12 @@ public class StepDefinitions {
 
 	@Given("I request post with ID {int}")
 	public void iRequestPostWithID(int postId) {
-		testContext.setPost(placeholderApiClient.getPost(postId));
+		testContext.setApiResponse(placeholderApiClient.getPost(postId));
 	}
 
 	@Then("the title should be at least {int} characters long")
 	public void theTitleShouldBeAtLeastCharactersLong(int charCount) {
-		var post = testContext.getPost();
+		var post = testContext.getApiResponse();
 		assertTrue(post.get("title").asString().length() >= charCount, "Received title is too short");
 	}
 }
