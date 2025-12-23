@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: qa_live_test
+
+http:
+  placeholder-api:
+    url: https://jsonplaceholder.typicode.com

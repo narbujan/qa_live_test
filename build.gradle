@@ -52,6 +52,10 @@ dependencies {
 		because "Reduces boilerplate in main code, like getters/setters."
 	}
 
+	implementation("org.springframework.boot:spring-boot-starter-webflux") {
+		because("we want to use webflux for rest api testing")
+	}
+
 	annotationProcessor("org.projectlombok:lombok:latest.release") {
 		because "Processes Lombok annotations at compile time."
 	}
