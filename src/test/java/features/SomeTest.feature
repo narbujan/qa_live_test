@@ -1,4 +1,4 @@
-Feature: Cucumber tests are running
+Feature: Test some random things
 
   Scenario: It can save and read a message from test context
     Given I have saved the message "hello from cucumber" in test context
