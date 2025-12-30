@@ -10,3 +10,9 @@ Feature: Test some random things
   Scenario: It can execute api request
     Given I request post with ID 1
     Then the title should be at least 10 characters long
+
+  @ui
+  Scenario: It can visit mintos home page
+    Given I have opened mintos homepage
+    Then I should see login button
+

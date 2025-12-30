@@ -1,5 +1,6 @@
 package qa_live_test.steps;
 
+import qa_live_test.context.PageContext;
 import qa_live_test.context.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -19,6 +20,7 @@ public class StepDefinitions {
 
 	private final TestContext testContext;
 	private final PlaceholderApiClient placeholderApiClient;
+	private final PageContext pageContext;
 
 	@Given("I have saved the message {string} in test context")
 	public void iHaveSavedTheMessageInTestContext(String message) {
@@ -55,5 +57,15 @@ public class StepDefinitions {
 	public void theTitleShouldBeAtLeastCharactersLong(int charCount) {
 		var response = testContext.getApiResponse();
 		assertTrue(response.get("title").asString().length() >= charCount, "Received is less than " + charCount + " characters long");
+	}
+
+	@Given("I have opened mintos homepage")
+	public void iHaveOpenedMintosHomepage() {
+		pageContext.getPage().navigate("https://mintos.com/");
+	}
+
+	@Then("I should see login button")
+	public void iShouldSeeLoginButton() {
+		assertTrue(pageContext.getPage().locator("#header-login-button").isVisible());
 	}
 }

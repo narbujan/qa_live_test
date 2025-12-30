@@ -5,3 +5,8 @@ spring:
 http:
   placeholder-api:
     url: https://jsonplaceholder.typicode.com
+
+playwright:
+  ws-endpoint: ws://localhost:3002
+  timeout: 8s
+  url: http://localhost:3000
